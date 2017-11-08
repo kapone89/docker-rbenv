@@ -28,13 +28,14 @@ RUN apk add --update --no-cache \
   libxslt-dev \
   make \
   ncurses-dev \
-  openssl \
-  openssl-dev \
   procps \
   readline-dev \
   tar \
   yaml-dev \
-  zlib-dev
+  zlib-dev \
+  libressl \
+  libressl-dev \
+  postgresql-dev
 
 RUN update-ca-certificates
 
