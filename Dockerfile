@@ -35,7 +35,8 @@ RUN apk add --update --no-cache \
   zlib-dev \
   libressl \
   libressl-dev \
-  postgresql-dev
+  postgresql-dev \
+  tzdata
 
 RUN update-ca-certificates
 
