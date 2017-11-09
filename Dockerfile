@@ -32,8 +32,8 @@ RUN apk add --update --no-cache \
 
 RUN update-ca-certificates
 
-ENV RBENV_ROOT /rbenv
 ENV APP_HOME /app
+ENV RBENV_ROOT /rbenv
 ENV CONFIGURE_OPTS "--disable-install-doc"
 ENV PATH $RBENV_ROOT/shims:$RBENV_ROOT/bin:$PATH
 ENV RUBY_CFLAGS "-O2"
@@ -42,7 +42,6 @@ ENV ac_cv_func_isinf yes
 
 RUN mkdir $APP_HOME
 RUN mkdir $RBENV_ROOT
-VOLUME $APP_HOME
 WORKDIR $APP_HOME
 
 RUN git clone https://github.com/rbenv/rbenv.git ${RBENV_ROOT}

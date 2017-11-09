@@ -1,0 +1,8 @@
+ENV RUBY_VERSION "2.3.1"
+
+RUN rbenv install $RUBY_VERSION
+RUN rbenv global $RUBY_VERSION
+RUN gem install bundler
+
+# /app
+VOLUME $APP_HOME
