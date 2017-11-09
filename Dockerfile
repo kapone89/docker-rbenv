@@ -35,6 +35,8 @@ ENV APP_HOME /app
 ENV CONFIGURE_OPTS "--disable-install-doc"
 ENV PATH $RBENV_ROOT/shims:$RBENV_ROOT/bin:$PATH
 ENV RUBY_CFLAGS "-O2"
+ENV ac_cv_func_isnan yes
+ENV ac_cv_func_isinf yes
 
 RUN mkdir $APP_HOME
 RUN mkdir $RBENV_ROOT
