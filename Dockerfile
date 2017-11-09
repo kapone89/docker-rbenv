@@ -1,11 +1,9 @@
 FROM alpine:3.6
 
 RUN apk add --update --no-cache \
+  alpine-sdk \
   bash \
-  build-base \
-  git \
   wget \
-  curl \
   vim \
   linux-headers \
   imagemagick-dev \
@@ -18,23 +16,15 @@ RUN apk add --update --no-cache \
   bzip2 \
   bzip2-dev \
   ca-certificates \
-  coreutils \
-  gcc \
   gdbm-dev \
   glib-dev \
-  libc-dev \
   libffi-dev \
   libxml2-dev \
   libxslt-dev \
-  make \
   ncurses-dev \
   procps \
   readline-dev \
-  tar \
   yaml-dev \
-  zlib-dev \
-  libressl \
-  libressl-dev \
   postgresql-dev \
   tzdata
 
