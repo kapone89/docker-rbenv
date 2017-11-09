@@ -26,6 +26,8 @@ RUN apk add --update --no-cache \
   readline-dev \
   yaml-dev \
   postgresql-dev \
+  mariadb-dev \
+  nodejs \
   tzdata
 
 RUN update-ca-certificates
