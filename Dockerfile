@@ -1,5 +1,7 @@
 FROM alpine:3.6
 
+RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+
 RUN apk add --update --no-cache \
   alpine-sdk \
   bash \
