@@ -1,8 +1,6 @@
-ENV RUBY_VERSION "2.3.1"
+FROM kapone89/docker-rbenv:2.4.2
 
-RUN rbenv install $RUBY_VERSION
-RUN rbenv global $RUBY_VERSION
-RUN gem install bundler
+RUN apk add --update --no-cache libreoffice
 
 # /app
-VOLUME $APP_HOME
+VOLUME $APP_HOME $APP_HOME/tmp $APP_HOME/log
