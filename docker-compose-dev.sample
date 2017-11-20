@@ -1,0 +1,49 @@
+version: '3'
+services:
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: "tail -f /dev/null"
+    ports:
+      - "3000:3000"
+    environment:
+      RBENV_GEMSETS: ".data/gems"
+      REDIS_URL: "redis://redis:6379"
+      DATABASE_URL: "postgres://app:password@postgres/app_development"
+    volumes:
+      - api-sync:/app:nocopy
+    depends_on:
+      - redis
+      - postgres
+    links:
+      - redis
+      - postgres
+    network_mode: bridge
+
+  redis:
+    container_name: redis
+    image: "redis:4.0-alpine"
+    network_mode: bridge
+    volumes:
+      - redis-sync:/data:nocopy
+
+  postgres:
+    container_name: postgres
+    image: "postgres:9.6-alpine"
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: app
+      POSTGRES_DB: app_development
+    network_mode: bridge
+    volumes:
+      - postgres-sync:/var/lib/postgresql/data:nocopy
+
+volumes:
+  api-sync:
+    external: true
+  redis-sync:
+    external: true
+  postgres-sync:
+    external: true
