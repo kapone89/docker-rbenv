@@ -1,10 +1,22 @@
 version: '3'
 services:
-  web:
+  worker:
+    container_name: worker
     build: .
-    environment:
-      BUNDLE_PATH: "/app/.gems"
-    ports:
-      - "3000:3000"
+    command: "bundle exec sidekiq"
+    env_file: "worker.env"
+    depends_on:
+      - redis
+    links:
+      - redis
     volumes:
-      - .:/app
+      - /tmp/workspace:/tmp/workspace
+    network_mode: bridge
+
+  redis:
+    container_name: redis
+    image: "bitnami/redis:4.0"
+    env_file: "redis.env"
+    ports:
+      - '6379:6379'
+    network_mode: bridge
