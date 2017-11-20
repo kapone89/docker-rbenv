@@ -1,0 +1,14 @@
+version: "2"
+
+options:
+  verbose: true
+syncs:
+  api-sync:
+    src: '.'
+    sync_excludes:
+      - ".data/postgres"
+      - ".data/redis"
+  redis-sync:
+    src: '.data/redis'
+  postgres-sync:
+    src: '.data/postgres'
