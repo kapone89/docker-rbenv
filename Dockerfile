@@ -11,8 +11,6 @@ RUN apk add --update --no-cache \
   imagemagick-dev \
   qt-webkit \
   xvfb \
-  mysql-client \
-  postgresql-client \
   autoconf \
   bison \
   bzip2 \
@@ -27,7 +25,11 @@ RUN apk add --update --no-cache \
   procps \
   readline-dev \
   yaml-dev \
+  postgresql \
+  postgresql-client \
   postgresql-dev \
+  mysql \
+  mysql-client \
   mariadb-dev \
   nodejs \
   tzdata
