@@ -53,3 +53,6 @@ RUN git clone https://github.com/rbenv/ruby-build.git ${RBENV_ROOT}/plugins/ruby
 RUN git clone https://github.com/jf/rbenv-gemset.git ${RBENV_ROOT}/plugins/rbenv-gemset
 RUN echo 'eval "$(rbenv init -)"' >> /etc/profile.d/rbenv.sh
 RUN echo 'eval "$(rbenv init -)"' >> /root/.bashrc
+
+# enable irb history
+RUN echo "require 'irb/ext/save-history'; IRB.conf[:SAVE_HISTORY] = 200; IRB.conf[:HISTORY_FILE] = '/root/.irb-history'" >> /root/.irbrc
